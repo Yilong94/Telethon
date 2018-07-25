@@ -2,7 +2,7 @@ import datetime
 
 from .. import TLObject
 from ..functions.messages import SaveDraftRequest
-from ..types import UpdateDraftMessage, DraftMessage
+from ..types import UpdateDraftMessage, DraftMessage, DraftMessageEmpty
 from ...errors import RPCError
 from ...extensions import markdown
 
