@@ -29,11 +29,12 @@ class Draft:
         if not draft:
             draft = DraftMessage('', None, None, None, None)
 
-        self._text = markdown.unparse(draft.message, draft.entities)
-        self._raw_text = draft.message
-        self.date = draft.date
-        self.link_preview = not draft.no_webpage
-        self.reply_to_msg_id = draft.reply_to_msg_id
+        if not isinstance(draft, DraftMessageEmpty):
+            self._text = markdown.unparse(draft.message, draft.entities)
+            self._raw_text = draft.message
+            self.date = draft.date
+            self.link_preview = not draft.no_webpage
+            self.reply_to_msg_id = draft.reply_to_msg_id
 
     @classmethod
     def _from_update(cls, client, update):
